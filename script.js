@@ -1,7 +1,5 @@
 // playerShip = USS Schwarzenegger
 // enemyShip = Alien Ship
-// should have hull, firepower, and accuracy as individual attributes
-//
 // actors
 class actorShip{
     constructor(hull, firepower,accuracy){
@@ -35,16 +33,10 @@ class playerShip extends actorShip {
 class enemyShip extends actorShip {
     constructor(hull, firepower, accuracy) {
         super(hull, firepower, accuracy)
+        // hull, firepower, and accuracy are randomly generated here
         this.hull = Math.floor((Math.random() * 6) + 3);
         this.firepower = Math.floor((Math.random() * 4) + 2);
         this.accuracy = Math.floor((Math.random() * .8) + .6);
     }
 }
 
-// "ship will attack, calculate the chance that the damage will hit the opposing ship using `Math.random()` - If the ship's accuracy is `X` - then if the number generated from `Math.random()` is less than or equal to `X` then the attack will be successful. If the value is greater than `X` then the attack has missed."
-//psuedocode
-//check if attack will land with the attacker's accuracy
-//if attack lands, reduce defenders HP by firepower 
-//else, end the turn 
-//
-//
