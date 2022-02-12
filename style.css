@@ -64,7 +64,7 @@ align-items: center;
 
 
 }
-.playerOptions, #playerAttack, #playerRetreat{
+.playerOptions, #playerAttack, #playerRetreat, .results{
     display: flex;
     justify-content: center;
     align-items: center;
