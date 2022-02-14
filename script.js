@@ -1,8 +1,8 @@
 // playerShip = USS Schwarzenegger
 // enemyShip = Alien Ship
 // actors
-const attackButton = document.getElementById('playerAttack');
-const retreatButton = document.getElementById('playerRetreat');
+var attackButton = document.getElementById('playerAttack');
+var retreatButton = document.getElementById('playerRetreat');
 class actorShip{
     constructor(hull,firepower,accuracy){
         this.hull = hull;
@@ -10,23 +10,23 @@ class actorShip{
         this.accuracy = accuracy;
     }
     playerAttack (playerShip,enemyShip) {
-        attackChance = Math.random();
-        attackHit = playerShip.accuracy>=attackChance ? true : false;
+        var attackChance=(Math.random());
+        var attackHit = playerShip.accuracy>=(attackChance) ? true : false;
         if(attackHit){
             enemyShip.hull-playerShip.firepower;
-            enemyShip.hull=0 ? alert("You defeated the enemy!") :alert(`You struck the enemy! ${enemyShip.hull} HP left.`)
+            enemyShip.hull<=0 ? alert("You defeated the enemy!") :alert(`You struck the enemy! ${enemyShip.hull} HP left.`)
         } else {
             alert("You missed your target!")
         }
         
     }
     enemyAttack (playerShip,enemyShip) {
-        attackChance = Math.random();
-        attackHit = enemyShip.accuracy>=attackChance ? true : false;
+        var attackChance=(Math.random());
+        var attackHit = enemyShip.accuracy>=(attackChance) ? true : false;
         if(attackHit(true)){
             playerShip.hull-enemyShip.firepower;
             
-            playerShip.hull=0 ? alert("Game over!") : alert(`The enemy landed a hit on you! ${playerShip.hull} HP left.`)
+            playerShip.hull<=0 ? alert("Game over!") : alert(`The enemy landed a hit on you! ${playerShip.hull} HP left.`)
         }
         if(attackHit(false)) {
             return alert("You missed your target!")
@@ -50,9 +50,9 @@ class enemyShip extends actorShip {
     }
 }
 
-let pShip = new playerShip(20,5,.7)
-let eShip = new enemyShip
-let aShip = new actorShip
+var pShip = new playerShip(20,5,.7)
+var eShip = new enemyShip
+var aShip = new actorShip
 attackButton.addEventListener('click', {
     handleEvent: function (event) {
         alert(aShip.playerAttack(pShip,eShip))
